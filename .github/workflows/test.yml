@@ -1,13 +1,27 @@
-name: Repository Dispatch
+name: Deploy on Studio Release
 on:
   repository_dispatch:
     types: [release_was_published]
 jobs:
   deploy_website:
+    name: "Deploy ProcessEngine.io"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        with:
-          ref: ${{ github.event.client_payload.ref }}
 
-      - run: echo ${{ github.event.client_payload.sha }}
+      - run: echo BLBALBAL
+      # - name: Use Node.js 10.x
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 10.x
+
+      # - name: Install Dependencies
+      #   run: npm ci
+
+      # - name: Build Sources
+      #   run: npm run Build
+
+      # - name: Deploy
+      #   run: npm run deploy -- --user="ProcessEngineCI <hello@process-engine.io>" --repo=https://${GH_TOKEN}@github.com/process-engine/process-engine.github.io.git
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GH_TOKEN }}
